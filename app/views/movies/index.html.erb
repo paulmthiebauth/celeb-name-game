@@ -1,0 +1,20 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("search", "1");
+</script>
+
+<body>
+
+<nav id="movienav">
+We found a lot of results!  Could you please pick which movie you were referring to?<br><br>
+
+<% @results.each do |movie| %>
+<%= button_to movie.title, movie_path(movie.id), :id => "#{movie.id}", method: :get, form: { data: {'movie-button' => 'details'}} %><br>
+<% end %>
+</nav>
+
+<div id="moviecontents"></div>
+
+</body>
