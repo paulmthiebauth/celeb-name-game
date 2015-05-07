@@ -73,17 +73,17 @@
 
 .top-bar {
   font-family: 'Arvo', serif;
-font-weight: 400;
-margin-bottom: 5px;
-border-bottom: 1px dashed #e8e8e8;
-background-color: #292d34;
+  font-weight: 400;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed #e8e8e8;
+  background-color: #292d34;
 }
 
 .top-nav-bar {
   font-family: 'Arvo', serif;
-font-weight: 400;
-margin:bottom: -20px;
-background-color: #292d34;
+  font-weight: 400;
+  margin:bottom: -20px;
+  background-color: #292d34;
 }
 
 .top-nav-bar
@@ -151,19 +151,19 @@ background-color: #292d34;
 }
 
 .small-3 img:hover {
- transform: scale(1.01);
- -webkit-filter: none;
+  transform: scale(1.01);
+  -webkit-filter: none;
   -moz-filter: none;
   -ms-filter: none;
   filter: none;
-  }
+}
 
 /* .movie-index-item {
-  height: 300px;
+height: 300px;
 } */
 
-.movie-poster {
-  margin-top: 10px;
+  .movie-poster {
+    margin-top: 10px;
 }
 
 .movie-poster input {
@@ -308,7 +308,7 @@ a {
 }
 
 .leader-email {
-text-align: center;
+  text-align: center;
 }
 
 .user-position {

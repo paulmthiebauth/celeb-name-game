@@ -8,48 +8,48 @@
 <body>
   <div class="movienavbody">
 
-<div class="movienav-container">
-We found a lot of results!  Could you please pick which movie you were referring to?<br><br>
-<% @results.each do |movie| %>
-<div class="small-3 columns">
-<div class="movie-index-item">
-<div class="movie-poster">
+    <div class="movienav-container">
+      We found a lot of results!  Could you please pick which movie you were referring to?<br><br>
+      <% @results.each do |movie| %>
+        <div class="small-3 columns">
+          <div class="movie-index-item">
+            <div class="movie-poster">
 
 
-  <%= link_to image_tag("#{movie.poster}"), movie_path(movie.id) %>
-  <div class="movie-info">
-    <div class="movie-title">
-    <%= movie.title[0..-8] %>
+              <%= link_to image_tag("#{movie.poster}"), movie_path(movie.id) %>
+              <div class="movie-info">
+                <div class="movie-title">
+                  <%= movie.title[0..-8] %>
+                </div>
+                <div class="movie-year">
+                  <%= movie.year %>
+                </div>
+              </div>
+
+              <!-- <%= button_to movie.title, movie_path(movie.id), :id => "#{movie.id}", method: :get, form: { data: {'movie-button' => 'details'}} %><br> -->
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+
+      <div id="moviecontents"></div>
+
+    </div>
   </div>
-  <div class="movie-year">
-    <%= movie.year %>
-  </div>
-  </div>
-
-<!-- <%= button_to movie.title, movie_path(movie.id), :id => "#{movie.id}", method: :get, form: { data: {'movie-button' => 'details'}} %><br> -->
-</div>
-</div>
-</div>
-<% end %>
 
 
-
-<div id="moviecontents"></div>
-
-</div>
-</div>
-
-
-<footer class="row">
-<div class="large-12 columns">
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="footer">
-        <p>© Copyright Celebri 2015</p>
+  <footer class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="footer">
+          <p>© Copyright Celebri 2015</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</footer>
+  </footer>
 
 </body>

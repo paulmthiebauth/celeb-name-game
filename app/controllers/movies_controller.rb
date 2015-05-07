@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
       end
       counter += 1
     end
-   end
+  end
 
   def show
     movie_info = Imdb::Movie.new(params[:id])
@@ -23,8 +23,8 @@ class MoviesController < ApplicationController
     #SEND
     @actor_and_image = {}
     @actor_names.each do |name|
-    image_url = Google::Search::Image.new(:query => name).first.uri
-    @actor_and_image[name] = image_url
+      image_url = Google::Search::Image.new(:query => name).first.uri
+      @actor_and_image[name] = image_url
     end
     @picks = Pick.new
 

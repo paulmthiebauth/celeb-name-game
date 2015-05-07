@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CelebrityNameGame</title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= csrf_meta_tags %>
-  <link href='//fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-</head>
+  <head>
+    <title>CelebrityNameGame</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tags %>
+    <link href='//fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+  </head>
 
-<body>
-  <div class="show-container">
+  <body>
+    <div class="show-container">
 
-  <div class="top-nav-bar">
-  <div class="row">
+      <div class="top-nav-bar">
+        <div class="row">
 
-  <div class="small-4 columns">
-    <div class="navleft">
-      <ul class="inline-list">
-        <li><%= link_to image_tag("/reel.png"), root_path %></li>
-        <li><%= link_to image_tag("/trophy.png"), leaders_path %></li>
-      </ul>
+          <div class="small-4 columns">
+            <div class="navleft">
+              <ul class="inline-list">
+                <li><%= link_to image_tag("/reel.png"), root_path %></li>
+                <li><%= link_to image_tag("/trophy.png"), leaders_path %></li>
+              </ul>
 
-    </div>
-  </div>
+            </div>
+          </div>
 
-  <div class="small-4 columns">
-    <div class="nav-logo-white">
-      Celebri
-    </div>
-  </div>
-  <div class="small-4 columns">
-    <div class="navright">
-      <ul class="inline-list right">
-        <% if signed_in? %>
-          <li><div class="navbutton"><%= link_to "Account", edit_user_registration_path %></div></li>
-          <li><div class="navbutton"><%= link_to "Log Out", destroy_user_session_path, :method => :delete, :id => 'user_logout' %></div></li>
-        <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
-</div>
-    <div class="flash">
-      <% if flash.any? %>
-        <% if alert != nil %>
-          <%= alert %>
-        <% elsif notice.is_a? String %>
-          <%= notice %>
-        <% elsif notice.size == 1 %>
-          <%= notice.first %>
-        <% else %>
-          <% flash[:notice].each do |flash| %>
-            <%= flash %><br />
+          <div class="small-4 columns">
+            <div class="nav-logo-white">
+              Celebri
+            </div>
+          </div>
+          <div class="small-4 columns">
+            <div class="navright">
+              <ul class="inline-list right">
+                <% if signed_in? %>
+                  <li><div class="navbutton"><%= link_to "Account", edit_user_registration_path %></div></li>
+                  <li><div class="navbutton"><%= link_to "Log Out", destroy_user_session_path, :method => :delete, :id => 'user_logout' %></div></li>
+                <% else %>
+                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <li><%= link_to "Sign In", new_user_session_path %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flash">
+        <% if flash.any? %>
+          <% if alert != nil %>
+            <%= alert %>
+          <% elsif notice.is_a? String %>
+            <%= notice %>
+          <% elsif notice.size == 1 %>
+            <%= notice.first %>
+          <% else %>
+            <% flash[:notice].each do |flash| %>
+              <%= flash %><br />
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
+
+      <%= yield %>
+
+      <%= javascript_include_tag 'application' %>
+      <%= yield :extra_footer %>
     </div>
-
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-  <%= yield :extra_footer %>
-</div>
-</body>
+  </body>
 
 </html>
