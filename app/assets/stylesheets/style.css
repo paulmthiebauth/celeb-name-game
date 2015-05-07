@@ -318,3 +318,12 @@ a {
 .leaders h2 {
   text-align: center;
 }
+
+
+.actor-info-name {
+  height: 50px;
+}
+
+.actor-info-name-text {
+  padding-top: -25px;
+}

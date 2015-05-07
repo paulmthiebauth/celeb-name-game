@@ -27,7 +27,9 @@
           <div class="small-1 columns"></div>
           <% @actor_and_index.each do |name, index| %>
             <div class="small-2 columns">
-              <%= name %><br>
+              <div class="actor-info-name">
+              <div class="actor-info-name-text"><%= name %></div><br>
+              </div>
               <% index += 1 %>
               <%= f.text_field "pick_number#{index}", placeholder: "Which number?" %>
               <%= hidden_field_tag "user_guess#{index}", name_image_hash[name] %>
