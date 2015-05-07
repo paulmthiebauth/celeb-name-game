@@ -1,12 +1,18 @@
 class MoviesController < ApplicationController
   respond_to :html, :json
   def index
-    @results = Imdb::Search.new(params[:search]).movies
-  end
+    @results = []
+    counter = 0
+    until @results.size == 4
+      movie = Imdb::Search.new(params[:search]).movies[counter]
+      if movie.poster != nil
+        @results << movie
+      end
+      counter += 1
+    end
+   end
 
   def show
-
-
     movie_info = Imdb::Movie.new(params[:id])
     @actor_and_index = {}
     movie_info.cast_members[0..4].each_with_index {|actor, index| @actor_and_index[actor] = index}
@@ -27,9 +33,6 @@ class MoviesController < ApplicationController
       format.json { render json: { names: @actor_names, actor_index: @actor_and_index, images: @actor_and_image, pick: @picks } }
     end
 
-
   end
 
-  def update
-  end
 end

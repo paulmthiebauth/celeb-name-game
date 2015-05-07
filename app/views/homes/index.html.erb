@@ -1,6 +1,33 @@
-Celebri
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+
+<body>
+
+<div class="search">
+
+<div class="title">
+  <%= image_tag("/celebri-search-logo.png") %>
+</div>
 
 <form action="/movies" method="get">
-  <input type="text" class="search-field" name="search"/>
+  <input type="text" class="search-field" name="search" placeholder="Which movie should we play with?"/>
+  <div class="search-button">
   <input type="submit" value="Game on!" class="submit"/>
+</div>
 </form>
+
+</div>
+
+<footer class="row">
+<div class="large-12 columns">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="footer">
+        <p>© Copyright Celebri 2015</p>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+
+
+</body>

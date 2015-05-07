@@ -4,28 +4,45 @@
   <title>CelebrityNameGame</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
+  <div class="show-container">
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">CelebrityNameGame</a></h1>
-      </li>
-    </ul>
+  <div class="top-nav-bar">
+  <div class="row">
 
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
+  <div class="small-4 columns">
+    <div class="navleft">
+      <ul class="inline-list">
+        <li><%= link_to image_tag("/reel.png"), root_path %></li>
+        <li><%= link_to image_tag("/trophy.png"), leaders_path %></li>
       </ul>
-    </section>
-  </nav>
 
+    </div>
+  </div>
+
+  <div class="small-4 columns">
+    <div class="nav-logo-white">
+      Celebri
+    </div>
+  </div>
+  <div class="small-4 columns">
+    <div class="navright">
+      <ul class="inline-list right">
+        <% if signed_in? %>
+          <li><div class="navbutton"><%= link_to "Account", edit_user_registration_path %></div></li>
+          <li><div class="navbutton"><%= link_to "Log Out", destroy_user_session_path, :method => :delete, :id => 'user_logout' %></div></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
     <div class="flash">
       <% if flash.any? %>
         <% if alert != nil %>
@@ -46,5 +63,7 @@
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+</div>
 </body>
+
 </html>

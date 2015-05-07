@@ -1,4 +1,9 @@
-<h2>Log in</h2>
+<div class="movienavbody">
+  <div class="row">
+    <div class="small-12 columns">
+
+  <div class="signup-container">
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -17,10 +22,26 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+</div>
 
+<div class="search-button">
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+<footer class="row">
+<div class="large-12 columns">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="footer">
+        <p>© Copyright Celebri 2015</p>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>

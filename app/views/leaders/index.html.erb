@@ -1,0 +1,49 @@
+<div class="movienavbody">
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="leaders">
+        <h2> Leaderboard </h2>
+        <div class="row">
+        <div class="small-4 columns">
+          <div class="leader-title">
+            <div class="leader-email">
+          User
+        </div>
+      </div>
+        </div>
+        <div class="small-2 columns">
+          <div class="leader-title">
+          Total
+        </div>
+      </div>
+      </div>
+      <ol>
+        <% @leaders.each do |leader| %>
+        <div class="leader-row">
+        <div class="row">
+        <div class="small-4 columns">
+          <div class="leader-email">
+            <% if current_user.id == leader.id %>
+            <li>
+            <div class="user-position">
+            <%= User.find(leader.user_id).email %>
+            </div>
+            </li>
+            <% else %>
+            <li><%= User.find(leader.user_id).email %></li>
+            <% end %>
+      </div>
+        </div>
+        <div class="small-2 columns">
+          <div class="total-points">
+          <%= leader.score %>
+        </div>
+        </div>
+      </div>
+      </div>
+        <% end %>
+      </ol>
+
+
+  </div>
+</div>

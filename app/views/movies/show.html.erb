@@ -1,33 +1,67 @@
-<div class="match-page">
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 
+<div class="movienavbody">
+  <div class="actors-container">
+<div class="match-page">
+  <div class="row">
+  <div class="small-1 columns"></div>
 <%= form_for @picks do |f| %>
   <% image_counter = 1 %>
   <% name_image_hash = {} %>
-  <div class="row">
+
+
     <% @actor_and_image.each do |name, image| %>
       <div class="small-2 columns">
         <div class="actor-image">
           <%= image_counter %>
           <% name_image_hash[name] = image_counter %>
-          <img src="<%= image %>" height="100" width="100">
+          <img src="<%= image %>">
         </div>
       </div>
       <% image_counter += 1 %>
     <% end %>
+    <div class="small-1 columns"></div>
   </div>
 
   <div class="row">
+    <div class="small-1 columns"></div>
     <% @actor_and_index.each do |name, index| %>
       <div class="small-2 columns">
         <%= name %><br>
         <% index += 1 %>
-        <%= f.text_field "pick_number#{index}" %>
+        <%= f.text_field "pick_number#{index}", placeholder: "Which number?" %>
         <%= hidden_field_tag "user_guess#{index}", name_image_hash[name] %>
       </div>
     <% end %>
+    <div class="small-1 columns"></div>
   </div>
-  <%= hidden_field_tag 'movie_id', params[:id] %>
-  <%= f.submit "Sign up" %>
-<% end %>
 
 </div>
+  <div class="row">
+    <div class="small-1 columns"></div>
+    <div class="small-10 columns">
+      <div class="actors-submit">
+
+  <%= hidden_field_tag 'movie_id', params[:id] %>
+  <%= f.submit "Submit" %>
+<% end %>
+</div>
+</div>
+<div class="small-1 columns"></div>
+</div>
+
+
+</div>
+</div>
+
+<footer class="row">
+<div class="large-12 columns">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="footer">
+        <p>© Copyright Celebri 2015</p>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>

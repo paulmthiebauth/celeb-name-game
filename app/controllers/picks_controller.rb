@@ -1,5 +1,6 @@
 class PicksController < ApplicationController
   def create
+  user = current_user.id
   total_picks = params[:pick].size
   counter = 1
   score = 0
@@ -8,6 +9,13 @@ class PicksController < ApplicationController
       score += 1
     end
     counter += 1
+  end
+
+  if Leader.where(user_id: user).empty?
+    Leader.create(user_id: user, score: score)
+  else
+    current_score = Leader.where(user_id: user).first.score
+    Leader.where(user_id: user).first.update(score: current_score + score)
   end
 
   if signed_in?
