@@ -10,15 +10,11 @@ feature 'user should be able to search for a particular movie', %Q{
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
-    binding.pry
-
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-
     click_button 'Log in'
-
     expect(page).to have_content('Signed in successfully')
     expect(page).to have_content('Celebri')
-    expect(page).to have_button('Game on!')
+    page.should have_selector(:link_or_button, 'Game on!')
   end
 end
