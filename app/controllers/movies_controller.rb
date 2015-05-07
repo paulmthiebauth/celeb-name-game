@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   def index
     @results = []
     counter = 0
-    until @results.size == 4
+    until @results.size == 4 || Imdb::Search.new(params[:search]).movies[counter].nil?
       movie = Imdb::Search.new(params[:search]).movies[counter]
       if movie.poster != nil
         @results << movie
