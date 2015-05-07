@@ -23,12 +23,16 @@
         <div class="row">
         <div class="small-4 columns">
           <div class="leader-email">
+            <% if signed_in? %>
             <% if current_user.id == leader.id %>
             <li>
             <div class="user-position">
             <%= User.find(leader.user_id).email %>
             </div>
             </li>
+            <% else %>
+            <li><%= User.find(leader.user_id).email %></li>
+            <% end %>
             <% else %>
             <li><%= User.find(leader.user_id).email %></li>
             <% end %>
