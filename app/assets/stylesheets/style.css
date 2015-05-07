@@ -195,14 +195,6 @@ background-color: #292d34;
   filter: gray; /* IE 6-9 */
 }
 
-.small-2:hover img {
-  transform: scale(1.01);
-  -webkit-filter: none;
-   -moz-filter: none;
-   -ms-filter: none;
-   filter: none;
-}
-
 .small-1 {
   width: 8.325%;
   height: 100px;
