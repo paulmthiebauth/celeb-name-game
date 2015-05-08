@@ -24,6 +24,7 @@ class MoviesController < ApplicationController
       @actor_and_image[name] = image_url
     end
     @picks = Pick.new
+    
 
     respond_to do |format|
       format.html { render :show }
@@ -31,5 +32,4 @@ class MoviesController < ApplicationController
     end
 
   end
-
 end
