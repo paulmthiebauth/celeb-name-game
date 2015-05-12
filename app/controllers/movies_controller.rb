@@ -12,7 +12,11 @@ class MoviesController < ApplicationController
     end
   end
 
+
+
+###Look into refactoring this
   def show
+    binding.pry
     movie_info = Imdb::Movie.new(params[:id])
     @actor_and_index = {}
     movie_info.cast_members[0..4].each_with_index {|actor, index| @actor_and_index[actor] = index}
@@ -24,7 +28,6 @@ class MoviesController < ApplicationController
       @actor_and_image[name] = image_url
     end
     @picks = Pick.new
-    
 
     respond_to do |format|
       format.html { render :show }
