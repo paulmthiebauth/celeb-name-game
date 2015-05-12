@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
 
 
 
-###Look into refactoring this
+###Look into refactoring this !!
   def show
     binding.pry
     movie_info = Imdb::Movie.new(params[:id])
