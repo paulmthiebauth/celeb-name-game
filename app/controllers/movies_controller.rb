@@ -12,8 +12,6 @@ class MoviesController < ApplicationController
     end
   end
 
-
-
 ###Look into refactoring this !!
   def show
     binding.pry
