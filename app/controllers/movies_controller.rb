@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
       end
       counter += 1
     end
+    
   end
 
 ###Look into refactoring this !!
