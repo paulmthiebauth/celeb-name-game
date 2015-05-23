@@ -6,28 +6,13 @@ return o;
 $(document).ready(function() {
   $('[data-movie-buttond="details"]').on('submit', function(event) {
     event.preventDefault();
-    //  $form = $(event.currentTarget);
-    //  var imdbid  = $form.attr('action').split("/")[2];
-    //  var resturl = "http://www.omdbapi.com/?i=tt"+imdbid+"&plot=short&r=json";
     var movie = $(this).attr('action');
 
      var getMovie = $.ajax({
      type: "GET",
-    //  beforeSend: function(xhr) {
-    //   xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
-    //   },
+
      url: movie,
      dataType: 'json',
-    //  success: function(data){
-
-     //
-    //  var hash = {}
-    //  var title = data["Title"];
-    //  var actors = shuffle((data["Actors"]).split(","));
-    //  debugger;
-    //  $("#moviecontents").append(title + "<br>")
-    //  $("#moviecontents").append(actors)
-  //  }
    });
    getMovie.done(function(result){
      $('#movienav').fadeToggle();
@@ -36,6 +21,7 @@ $(document).ready(function() {
    return false;
    });
 });
+
 
 
 function appendHTMLImages(result) {
