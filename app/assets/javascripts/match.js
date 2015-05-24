@@ -24,6 +24,7 @@ $(document).ready(function() {
 
 
 
+
 function appendHTMLImages(result) {
   var infoHTML = [];
   infoHTML.push("<div class='match-page'>");
